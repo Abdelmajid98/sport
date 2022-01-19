@@ -1,0 +1,12 @@
+<app-banner [bannerDetails]="bannerDetails"></app-banner>
+<form [formGroup]="searchWeatherFrom">
+    <div class="form-group">
+        <input type="text" class="form-control" formControlName="City" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="What are you looking ?">
+    </div>
+    <button type="submit" (click)="searchCity()" class="btn btn-primary">Search</button>
+</form>
+<div class="col-lg-12" style="margin: 11% 0;" >
+    <div > {{this.searchWeatherFrom.value.city}}</div>
+</div>
+<div *ngIf="foundedMatches?.length == 0" class="notFound">There is no weather for {{this.searchWeatherFrom.value.City}}</div>
